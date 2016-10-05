@@ -15,10 +15,10 @@ $app->get('/', function () use ($app) {
     return 'Voce acabou de visitar meu site ';
 });
 
-$app->get('/estabalecimentos', function () {
-	return DB::select("select estabelecimento_nome as nome from estabelecimentos");
+$app->get('/estabelecimentos', function () {
+	return App\Models\Estabelecimento::all(array('estabelecimento_nome', 'estabelecimento_descricao'));
 });
 
-$app->get('/estabalecimentos/{codigo}', function ($codigo) {
+$app->get('/estabelecimentos/{codigo}', function ($codigo) {
 	return DB::select("select estabelecimento_nome as nome from estabelecimentos where estabelecimento_codigo = '$codigo'" );
 });
