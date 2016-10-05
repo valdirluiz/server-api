@@ -16,7 +16,7 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('/estabelecimentos', function () {
-	return App\Models\Estabelecimento::all(array('estabelecimento_nome', 'estabelecimento_descricao'));
+	return App\Models\Estabelecimento::all();
 });
 
 $app->get('/estabelecimentos/{codigo}', function ($codigo) {
