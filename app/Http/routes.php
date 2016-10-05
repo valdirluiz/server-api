@@ -14,3 +14,11 @@
 $app->get('/', function () use ($app) {
     return 'Voce acabou de visitar meu site ';
 });
+
+$app->get('/estabalecimentos', function () {
+	return DB::select("select estabelecimento_nome as nome from estabelecimentos");
+});
+
+$app->get('/estabalecimentos/{codigo}', function ($codigo) {
+	return DB::select("select estabelecimento_nome as nome from estabelecimentos where estabelecimento_codigo = '$codigo'" );
+});
